@@ -17,19 +17,12 @@ port="$1";
 subdomain="$2";
 repo="$3";
 engine="$4"; #(node, npm, php, php-fpm)
+version="$5";
 #---------------
 
 
 echo "==================================" >> $log;
 echo "[$(date)] - (INFO) - $port - $subdomain - $repo" >> $log;
-
-echo '---------------';
-echo "Port : $port";
-echo "SubDomaine : $subdomain";
-echo "Repo : $repo";
-echo '---------------';
-
-echo 'Connexion Github.com...';
 echo "[$(date)] - (GIT) - Connexion Github.com..." >> $log;
 
 cd $racine
@@ -115,3 +108,5 @@ systemctl start "$subdomain.$domain.service"
 systemctl reload nginx.service
 
 /bin/certbot --nginx -d "$subdomain.$domain"
+
+echo "[$(date)] - (CERTBOT) - Certificate Install 'ok'" >> $log;
