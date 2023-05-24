@@ -1,0 +1,25 @@
+-extract system
+    -> git clone
+        -> scan virus
+    -> zip, tar.gz, tar.xz, rar, 7z
+        -> detect uncompress Bomb
+            -> scan virus
+
+
+                If ok =>
+                    -> move file $racine/$subdomain.$domain
+                        -> get PHP|Version / Node|Version / Vanilla
+
+                        If PHP =>
+                            -> create pool.d php-fpm$version
+                                -> systemD (start|stop|restart@127.0.0.1:$randomRangePort)
+
+                        If NODE =>
+                            -> path => .nvm/versions/V$version/bin
+                                ../npm install
+                                -> systemD (start|stop|restart@127.0.0.1:$randomRangePort)
+
+                        nginx => 
+                            -> root directory
+                                -> reverse proxy
+                            
